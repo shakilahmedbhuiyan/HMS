@@ -12,7 +12,7 @@ namespace HMS.Data
     public class HMSContext : DbContext
 
     {
-        protected HMSContext() : base("HMSConnectionString")
+        public HMSContext() : base("HMS_DB")
         {
 
         }
