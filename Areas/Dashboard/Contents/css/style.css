@@ -1,0 +1,19 @@
+﻿/*
+    Custome styles form thead dashboard area
+    This file contain thead main startbootstrap css 
+*/
+
+@import url('startbootstrap.css');
+
+
+
+#sidebar-nav .list-group-item{
+    background-color: rgb(14, 63, 76,1) !important;
+    color:white !important;
+}
+    #sidebar-nav a i{
+        font-size: 24px !important;
+    }
+    #sidebar-nav a:hover {
+        font-weight: bold;
+    }

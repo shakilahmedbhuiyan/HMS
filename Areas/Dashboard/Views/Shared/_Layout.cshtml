@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>@ViewBag.Title - HMS</title>
+    @Styles.Render("~/Areas/Dashboard/Contents/css/style.css")
+    @Styles.Render("~/Areas/Dashboard/Contents/css/icofont.css")
+    @Styles.Render("https://cdn.lineicons.com/3.0/lineicons.css")
+    @Styles.Render("~/Areas/Dashboard/Contents/line-awesome/css/line-awesome.css")
+
+</head>
+
+<body>
+    <div class="d-flex h-100" id="wrapper">
+
+        <!-- Sidebar-->
+        <div class="border-end position-relative" id="sidebar-wrapper">
+            <div class="sidebar-heading border-bottom bg-light">
+                <img class="img-fluid w-25" src="~/Areas/Dashboard/Contents/img/door-hanger-100.png" />
+                <span class="h1 fs-3 text-uppercase">HMS</span>
+            </div>
+            <div class="list-group list-group-flush" id="sidebar-nav">
+
+                <a class="list-group-item list-group-item-action p-2" href="@Url.Action("index" ,"Dashboard") "><i class="icofont-dashboard-web mr-1"></i> Dashboard</a>
+                <a class="list-group-item list-group-item-action p-2" href="@Url.Action("index" ,"Dashboard") "><i class="las la-hotel mr-1"></i> Accomodations</a>
+                <a class="list-group-item list-group-item-action p-2" href="@Url.Action("index" ,"Dashboard") "><i class="lni lni-bookmark"></i> Bookings</a>
+
+                <span class="list-group-item text-muted text-center"><i class="las la-user-shield"></i> Users</span>
+                <a class="list-group-item list-group-item-action p-2" href="@Url.Action("index" ,"Dashboard") "><i class="las la-users-cog mr-1"></i> Rules</a>
+                <a class="list-group-item list-group-item-action p-2" href="@Url.Action("index" ,"Dashboard") "><i class="lni lni-users mr-1"></i> Users</a>
+
+
+                <footer class="position-absolute bottom-0 w-100 bg-light">
+                    <hr />
+                    <div class="container-fluid pb-2 pt-0">
+
+                        <p class="text-muted">&copy; @DateTime.Now.Year - HMS</p>
+                    </div>
+
+                </footer>
+
+            </div>
+
+        </div>
+
+
+        <!-- Page content wrapper-->
+        <div id="page-content-wrapper">
+            <!-- Top navigation-->
+            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                <div class="container-fluid">
+                    <button class="btn btn-outline-primary" id="sidebarToggle"><i class="lni lni-layout"></i></button>
+
+
+                    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="icofont-navigation-menu"></i>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+
+                            <!--  <li class="nav-item dropdown">
+                                <a class="nav-link" id="navbarDropdown" href="#"
+                                   role="button" data-bs-toggle="dropdown" aria-haspopup="true"
+                                   ria-expanded="false">  User</a>
+                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="#!"><i class="las la-id-badge mr-1"></i>Profile</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#!"><i class="icofont-logout mr-1"></i>Logout</a>
+                                </div>
+                            </li> -->
+
+
+                            <li class="nav-item active"><a class="nav-link" href="@Url.Action("AdminProfile")">
+                                <i class="lni lni-user mr-1 fw-bolder"></i> Profile </a></li>
+
+                            <li class="nav-item active"><a class="nav-link" href="javascript:document.getElementById('logoutForm').submit()">
+                                <i class="icofont-logout mr-1"></i>Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <main class="container-fluid body-content">
+
+                @RenderBody()
+
+            </main>
+        </div>
+    </div>
+
+
+    @using (Html.BeginForm("LogOff", "Account", new{area="" }, FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+    @Html.AntiForgeryToken()
+    }
+
+
+    @Scripts.Render("https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js")
+    @Scripts.Render("~/Areas/Dashboard/Contents/js/scripts.js")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
