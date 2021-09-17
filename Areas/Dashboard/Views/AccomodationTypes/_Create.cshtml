@@ -1,0 +1,56 @@
+﻿@model HMS.Areas.Dashboard.ViewModel.AccomodationTypeActionModel
+
+@if (Model != null)
+    {
+        <!-- Modal Main Content-->
+        <div class="modal-content" id="createModal">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Create Accomodation Type</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="accomodationTypeForm">
+                    <div class="form-group mb-3">
+                        <label for="accomodationName" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="accomodationName" name="Name" placeholder="Accomodation Name">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="accomodationDescription" class="form-label">Description</label>
+                        <textarea class="form-control" id="accomodationDescription" name="Description" rows="2" placeholder="Short description of this accommodation type"></textarea>
+                    </div>
+
+                </form>
+
+                <div class="errorDiv">
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="createAccomodationType" class="btn btn-primary">Save</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+        <!-- Modal main content end-->
+    }
+<script>
+    $("#createAccomodationType").click(function () {
+        $.ajax({
+            url: '@Url.Action("Create", "AccomodationTypes")',
+            type: "post",
+            data: $("#accomodationTypeForm").serialize(),
+            success: function (response) {
+                if (response.Success) {
+                    const modal = bootstrap.Modal.getInstance(document.querySelector('#actionModal'));
+                    modal.hide();
+                    $("#list").load(window.location.href + " #list");
+                }
+                else {
+                    $(".errorDiv").html(response.Message);
+                }
+            }
+        });
+
+
+    });
+</script>

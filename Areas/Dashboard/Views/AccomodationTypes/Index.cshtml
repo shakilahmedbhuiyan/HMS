@@ -3,5 +3,47 @@
     ViewBag.Title = "Accomodations";
 }
 
-<h2>Index</h2>
-@{ Html.RenderAction("Listing");}
+<h2>Accomodation Types</h2>
+<hr />
+<div class="row">
+    <div clsaa="col-lg-12">
+        <div class="input-group py-2 px-4">
+            <input type="text" class="form-control" placeholder="Search here" aria-label="Accomodation Type Search" />
+            <button class="btn btn-outline-secondary" type="button"><i class="lni lni-search-alt mr-1"></i>Search</button>
+            <button class="btn btn-outline-secondary" type="button"><i class="las la-undo-alt fw-bolder mr-1"></i>Reset</button>
+            <!-- Button trigger Accomodation create modal -->
+            <button class="btn btn-outline-secondary" type="button" id="accomodationCreate" data-bs-toggle="modal" data-bs-target="#actionModal">
+            <i class="lni lni-circle-plus mr-1"></i>Create</button>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-lf-12" id="list">
+        @{ Html.RenderAction("Listing");}
+    </div>
+</div>
+
+<!-- Accomodation Create Modal -->
+<!-- Modal -->
+<div class="modal fade hide" id="actionModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" id="modalDialog">
+
+
+    </div>
+</div>
+
+<script>
+    $("#accomodationCreate").click(function () {
+        console.log("Modal Called");
+        $.ajax({
+            url: '@Url.Action("Create","AccomodationTypes")',
+            success: function (response) {
+                $("#modalDialog").html(response);
+            }
+        })
+            
+    });
+</script>
+

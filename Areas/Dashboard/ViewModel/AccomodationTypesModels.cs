@@ -10,4 +10,10 @@ namespace HMS.Areas.Dashboard.ViewModel
     {
         public IEnumerable<AccomodationType> AccomodationTypes { get; set; }
     }
+    public class AccomodationTypeActionModel
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+    }
 }
