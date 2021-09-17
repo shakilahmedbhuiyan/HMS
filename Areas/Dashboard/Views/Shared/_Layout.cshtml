@@ -11,8 +11,7 @@
     @Styles.Render("~/Areas/Dashboard/Contents/css/icofont.css")
     @Styles.Render("https://cdn.lineicons.com/3.0/lineicons.css")
     @Styles.Render("~/Areas/Dashboard/Contents/line-awesome/css/line-awesome.css")
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-utilities@4.1.3/bootstrap-utilities.min.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 </head>
 
 <body>
@@ -77,17 +76,11 @@
                             </li> -->
 
 
-                            <li class="nav-item active">
-                                <a class="nav-link" href="@Url.Action("Profile")">
-                                    <i class="lni lni-user mr-1 fw-bolder"></i> Profile
-                                </a>
-                            </li>
+                            <li class="nav-item active"><a class="nav-link" href="@Url.Action("Profile")">
+                                <i class="lni lni-user mr-1 fw-bolder"></i> Profile </a></li>
 
-                            <li class="nav-item active">
-                                <a class="nav-link" href="javascript:document.getElementById('logoutForm').submit()">
-                                    <i class="icofont-logout mr-1"></i>Logout
-                                </a>
-                            </li>
+                            <li class="nav-item active"><a class="nav-link" href="javascript:document.getElementById('logoutForm').submit()">
+                                <i class="icofont-logout mr-1"></i>Logout</a></li>
                         </ul>
                     </div>
                 </div>
@@ -102,9 +95,9 @@
     </div>
 
 
-    @using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    @using (Html.BeginForm("LogOff", "Account", new{area="" }, FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
     {
-        @Html.AntiForgeryToken()
+    @Html.AntiForgeryToken()
     }
 
 

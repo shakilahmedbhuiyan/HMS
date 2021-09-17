@@ -13,7 +13,7 @@ namespace HMS.Data
     public class HMSContext : IdentityDbContext<HMSUser>
 
     {
-        public HMSContext() : base("HMSDatabase")
+        public HMSContext() : base("HMS_DB")
         {
 
         }

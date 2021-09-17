@@ -1,5 +1,4 @@
-﻿
-using HMS.Data;
+﻿using HMS.Data;
 using HMS.Entities;
 using System;
 using System.Collections.Generic;
@@ -14,14 +13,7 @@ namespace HMS.Services
         public IEnumerable<AccomodationType> GetAllAccomodationTypes()
         {
             var context = new HMSContext();
-            return context.AccomodationTypes.AsEnumerable();
-        }
-        public bool SaveAccomodationType(AccomodationType accomodationType)
-        {
-            var context = new HMSContext();
-            context.AccomodationTypes.Add(accomodationType);
-            return context.SaveChanges() > 0;
-            ;
+            return context.AccomodationTypes.ToList();
         }
     }
 }
