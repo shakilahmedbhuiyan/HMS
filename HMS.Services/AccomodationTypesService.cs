@@ -13,7 +13,7 @@ namespace HMS.Services
         public IEnumerable<AccomodationType> GetAllAccomodationTypes()
         {
             var context = new HMSContext();
-            return context.AccomodationTypes.ToList();
+            return context.AccomodationTypes.AsEnumerable();
         }
     }
 }

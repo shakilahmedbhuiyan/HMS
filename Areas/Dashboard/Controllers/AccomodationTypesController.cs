@@ -1,4 +1,5 @@
-﻿using HMS.Services;
+﻿using HMS.Areas.Dashboard.ViewModel;
+using HMS.Services; //manually added refrence file
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +20,9 @@ namespace HMS.Areas.Dashboard.Controllers
 
         public ActionResult Listing()
         {
-            return PartialView("_Listing");
+            AccomodationTypesListingModel model = new AccomodationTypesListingModel();
+            model.AccomodationTypes = AccomodationTypesService.GetAllAccomodationTypes();
+            return PartialView("_Listing", model);
         }
 
     }
