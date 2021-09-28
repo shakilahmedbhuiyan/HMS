@@ -168,6 +168,7 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Areas\Dashboard\Controllers\AccomodationPackagesController.cs" />
     <Compile Include="Areas\Dashboard\Controllers\AccomodationTypesController.cs" />
     <Compile Include="Areas\Dashboard\Controllers\DashboardController.cs" />
     <Compile Include="Areas\Dashboard\DashboardAreaRegistration.cs" />
@@ -185,12 +186,14 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Dashboard\Contents\css\dark.css" />
     <Content Include="Areas\Dashboard\Contents\css\style.css" />
     <Content Include="Areas\Dashboard\Contents\img\HMS-icon.png" />
     <Content Include="Areas\Dashboard\Contents\css\icofont.css" />
     <Content Include="Areas\Dashboard\Contents\css\startbootstrap.css" />
     <Content Include="Areas\Dashboard\Contents\fonts\icofont.svg" />
     <Content Include="Areas\Dashboard\Contents\img\door-hanger-100.png" />
+    <Content Include="Areas\Dashboard\Contents\js\dark.js" />
     <Content Include="Areas\Dashboard\Contents\js\scripts.js" />
     <Content Include="Areas\Dashboard\Contents\line-awesome\css\line-awesome.css" />
     <Content Include="Areas\Dashboard\Contents\line-awesome\fonts\la-brands-400.svg" />
@@ -1787,7 +1790,8 @@
     <Content Include="Areas\Dashboard\Views\Dashboard\AdminProfile.cshtml" />
     <Content Include="Areas\Dashboard\Views\AccomodationTypes\Index.cshtml" />
     <Content Include="Areas\Dashboard\Views\AccomodationTypes\_Listing.cshtml" />
-    <Content Include="Areas\Dashboard\Views\AccomodationTypes\_Create.cshtml" />
+    <Content Include="Areas\Dashboard\Views\AccomodationTypes\_Action.cshtml" />
+    <Content Include="Areas\Dashboard\Views\AccomodationPackages\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

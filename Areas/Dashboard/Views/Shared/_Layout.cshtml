@@ -3,16 +3,19 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <meta name="description" content="" />
-    <meta name="author" content="" />
+    <meta name="description" content="Hotel Management System in ASP .Net MVC" />
+    <meta name="author" content="Shakil Ahmed" />
 
     <title>@ViewBag.Title - HMS</title>
     @Styles.Render("~/Areas/Dashboard/Contents/css/style.css")
+    <link href="~/Areas/Dashboard/Contents/css/dark.css" rel="stylesheet" />
     @Styles.Render("~/Areas/Dashboard/Contents/css/icofont.css")
     @Styles.Render("https://cdn.lineicons.com/3.0/lineicons.css")
     @Styles.Render("~/Areas/Dashboard/Contents/line-awesome/css/line-awesome.css")
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-utilities@4.1.3/bootstrap-utilities.min.css" />
+    @Styles.Render("https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css")
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
 </head>
 
 <body>
@@ -27,7 +30,8 @@
             <div class="list-group list-group-flush" id="sidebar-nav">
 
                 <a class="list-group-item list-group-item-action p-2" href="@Url.Action("index" ,"Dashboard") "><i class="icofont-dashboard-web mr-1"></i> Dashboard</a>
-                <a class="list-group-item list-group-item-action p-2" href="@Url.Action("Index" ,"AccomodationTypes") "><i class="las la-hotel mr-1"></i> Accomodations</a>
+                <a class="list-group-item list-group-item-action p-2" href="@Url.Action("Index" ,"AccomodationTypes") "><i class="las la-hotel mr-1"></i> Accomodations Types</a>
+                <a class="list-group-item list-group-item-action p-2" href="@Url.Action("Index" ,"AccomodationPackages") "><i class="lni lni-package mr-1"></i> Packages</a>
                 <a class="list-group-item list-group-item-action p-2" href="@Url.Action("index" ,"Dashboard") "><i class="lni lni-bookmark"></i> Bookings</a>
 
                 <span class="list-group-item text-muted text-center"><i class="las la-user-shield"></i> Users</span>
@@ -53,9 +57,26 @@
         <div id="page-content-wrapper">
             <!-- Top navigation-->
             <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-                <div class="container-fluid">
-                    <button class="btn btn-outline-primary" id="sidebarToggle"><i class="lni lni-layout"></i></button>
 
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-4">
+                            <button class="btn btn-outline-primary" id="sidebarToggle"><i class="lni lni-layout"></i></button>
+                        </div>
+                        <div class="col-5">
+                            <!-- Dark Mode Button -->
+                            <div class="py-2 px-3">
+                                <div class="form-check form-switch pull-right">
+                                    <input class="form-check-input" type="checkbox" id="darkMode">
+                                    <label id="darkModeLabel" for="darkMode">Light</label>
+                                </div>
+
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                  
 
                     <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -63,7 +84,9 @@
                         <i class="icofont-navigation-menu"></i>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
                         <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+
 
                             <!--  <li class="nav-item dropdown">
                                 <a class="nav-link" id="navbarDropdown" href="#"
@@ -77,11 +100,17 @@
                             </li> -->
 
 
-                            <li class="nav-item active"><a class="nav-link" href="@Url.Action("Profile")">
-                                <i class="lni lni-user mr-1 fw-bolder"></i> Profile </a></li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="@Url.Action("Profile")">
+                                    <i class="lni lni-user mr-1 fw-bolder"></i> Profile
+                                </a>
+                            </li>
 
-                            <li class="nav-item active"><a class="nav-link" href="javascript:document.getElementById('logoutForm').submit()">
-                                <i class="icofont-logout mr-1"></i>Logout</a></li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="javascript:document.getElementById('logoutForm').submit()">
+                                    <i class="icofont-logout mr-1"></i>Logout
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -96,14 +125,17 @@
     </div>
 
 
-    @using (Html.BeginForm("LogOff", "Account", new{area="" }, FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+
+
+    @using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
     {
-    @Html.AntiForgeryToken()
+        @Html.AntiForgeryToken()
     }
 
 
     @Scripts.Render("https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js")
     @Scripts.Render("~/Areas/Dashboard/Contents/js/scripts.js")
+    @Scripts.Render("~/Areas/Dashboard/Contents/js/dark.js")
     @RenderSection("scripts", required: false)
 </body>
 </html>

@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Accomodation Packages";
+    Layout = "~/Areas/Dashboard/Views/Shared/_Layout.cshtml";
+}
+
+<div class="d-flex justify-content-between py-2">
+    <h2 class="h4"><i class="lni lni-package mr-1"></i> Accomodation Packages</h2>
+
+        <button class="actionBtn btn btn-outline-success" type="button" data-href="@Url.Action("Action", "AccomodationPackages")"
+                data-bs-toggle="modal" data-bs-target="#actionModal">
+            <i class="lni lni-circle-plus mr-1"></i>Create
+        </button>
+</div>
+
+<div class="row">
+    <div class="col-lf-12" id="list">
+        @{ Html.RenderAction("Listing");}
+    </div>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        $('#myTable').DataTable();
+    });
+</script>

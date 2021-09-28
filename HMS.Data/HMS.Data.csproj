@@ -66,6 +66,14 @@
     <Compile Include="Migrations\202109171109173_migrate-1.designer.cs">
       <DependentUpon>202109171109173_migrate-1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202109181115246_AccomodationTypeValidation.cs" />
+    <Compile Include="Migrations\202109181115246_AccomodationTypeValidation.designer.cs">
+      <DependentUpon>202109181115246_AccomodationTypeValidation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202109181132173_AccomodationTypeValidationRemove.cs" />
+    <Compile Include="Migrations\202109181132173_AccomodationTypeValidationRemove.designer.cs">
+      <DependentUpon>202109181132173_AccomodationTypeValidationRemove.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -85,6 +93,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202109171109173_migrate-1.resx">
       <DependentUpon>202109171109173_migrate-1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109181115246_AccomodationTypeValidation.resx">
+      <DependentUpon>202109181115246_AccomodationTypeValidation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109181132173_AccomodationTypeValidationRemove.resx">
+      <DependentUpon>202109181132173_AccomodationTypeValidationRemove.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
